@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | OpenLeaf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('download.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">OpenLeaf</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="auth-buttons">
+                <button onclick="openModal('login')">Login</button>
+                <button onclick="openModal('signup')">Signup</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="services-section">
+            <h1>Our Services</h1>
+            <ul>
+                <li style="margin-bottom: 10px; font-size: 25px;">**Diverse Book Collection**: Explore a vast range of books, including fiction, non-fiction, academic texts, self-help guides, and children's literature.</li>
+                <li style="margin-bottom: 10px; font-size: 25px;">**Personalized Recommendations**: Receive tailored book suggestions based on your reading preferences and interests, powered by advanced AI algorithms.</li>
+                <li style="margin-bottom: 10px; font-size: 25px;">**Hassle-Free Shopping**: Enjoy a seamless shopping experience with our user-friendly interface, secure payment gateways, and reliable delivery services.</li>
+                <li style="margin-bottom: 10px; font-size: 25px;">**Community Engagement**: Join book clubs, participate in reading challenges, and access exclusive discounts and early releases as a valued member of our community.</li>
+                <li style="margin-bottom: 10px; font-size: 25px;">**Digital Library Access**: Access eBooks and audiobooks on demand, making it easy to read or listen to your favorite titles anywhere, anytime.</li>
+            </ul>
+            <span>"Enhancing Your Reading Experience with OpenLeaf Services."</span>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>OpenLeaf</h3>
+            </div>
+        </div>
+        <div class="footer-rights">
+            Copyright &#169; OpenLeaf Learning | All rights reserved
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <h2>Login</h2>
+        <form action="submit_login.php" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <h2>Signup</h2>
+        <form action="submit_signup.php" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Signup</button>
+        </form>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+
+    <script>
+        function openModal(type) {
+            document.getElementById(`${type}Modal`).classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
+            document.getElementById('overlay').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

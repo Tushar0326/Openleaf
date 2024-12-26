@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | OpenLeaf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('download.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">OpenLeaf</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="auth-buttons">
+                <button onclick="openModal('login')">Login</button>
+                <button onclick="openModal('signup')">Signup</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-section" style="margin-bottom: 50px;">
+            <h1 style="font-size: 2em;">Contact Us</h1>
+            <p style="font-size: 1.3em;">If you have any questions, feedback, or inquiries, feel free to reach out to us. We'd love to hear from you!</p>
+            <form action="submit_contact.php" method="POST" style="font-size: 1em;">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info" style="font-size: 1.4em;">
+                <p><strong>Email:</strong> support@openleaf.com</p>
+                <p><strong>Phone:</strong> +1 234 567 890</p>
+                <p><strong>Address:</strong> 123 OpenLeaf Lane, BookTown, USA</p>
+            </div>
+        </section>
+        <section class="large-form-section" style="margin-bottom: 50px;">
+            <h2 style="font-size: 1.9em;">Get in Touch</h2>
+            <form action="submit_large_form.php" method="POST" style="font-size: 1em;">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full_name" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group"></div>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group"></div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer style=" width: 100%; text-align: center;">
+        <div class="footer">
+            <div class="footer-first">
+                <h3>OpenLeaf</h3>
+            </div>
+        </div>
+        <div class="footer-rights">
+            Copyright &#169; OpenLeaf Learning | All rights reserved
+        </div>
+    </footer>
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <h2>Login</h2>
+        <form>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <h2>Signup</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Signup</button>
+        </form>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+    <script>
+        function openModal(type) {
+            document.getElementById(`${type}Modal`).classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
+            document.getElementById('overlay').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

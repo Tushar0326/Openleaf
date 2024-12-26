@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenLeaf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <style>
+        body {
+            background-image: url('download.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 250%;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">OpenLeaf</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="auth-buttons">
+                <button onclick="openModal('login')">Login</button>
+                <button onclick="openModal('signup')">Signup</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Welcome to OpenLeaf, the ultimate online destination for<br><span class="purple">book lovers, learners, and curious minds.<br></span>
+                <span id="element"></span>
+                <div class="buttons"></div> 
+            </div>
+            <div class="rightSection">
+                <img src="book.1.jpg" alt="">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>OpenLeaf</h3>
+            </div>
+        </div>
+        <div class="footer-rights">
+            Copyright &#169; OpenLeaf Learning | All rights reserved
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <h2>Login</h2>
+        <form>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <h2>Signup</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Signup</button>
+        </form>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+
+    <script>
+        function openModal(type) {
+            document.getElementById(`${type}Modal`).classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
+            document.getElementById('overlay').classList.remove('active');
+        }
+    </script>
+    <script src="script.js" defer></script>
+</body>
+</html>
